@@ -24,6 +24,7 @@ function getRequestObject() {
 ajaxUtils.sendGetRequest =
   function(requestUrl, responseHandler, isJsonResponse) {
     var request = getRequestObject();
+
     request.onreadystatechange =
       function() {
         handleResponse(request,
@@ -41,6 +42,7 @@ ajaxUtils.sendGetRequest =
 function handleResponse(request,
                         responseHandler,
                         isJsonResponse) {
+
   if ((request.readyState == 4) &&
      (request.status == 200)) {
 
@@ -51,9 +53,11 @@ function handleResponse(request,
 
     if (isJsonResponse) {
       responseHandler(JSON.parse(request.responseText));
+
     }
     else {
       responseHandler(request.responseText);
+
     }
   }
 }
